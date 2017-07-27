@@ -6,9 +6,10 @@
   "repository": "",
   "scripts": {
     "start": "babel-node server.js",
+    "postinstall": "yarn build",
     "build-client": "webpack -p",
     "build-server": "babel -d ./dist ./server -s",
-    "build": "npm run build-client && npm run build-server",
+    "build": "yarn build-client && yarn build-server",
     "prod": "node ./dist/server.js"
   },
   "babel": {
