@@ -25,7 +25,10 @@ const common = {
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
-      loader: 'babel'
+      loader: 'babel-loader',
+      query: {
+        presets: ['es2015', 'react']
+      }
     }]
   },
 	resolve: {
@@ -35,8 +38,8 @@ const common = {
 
 let config;
 
-switch(process.env.npm_lifecycle_event) {
-	case 'server':
+switch(process.env.NODE_ENV) {
+	case 'production':
 		config = merge(
 		  common,
       {

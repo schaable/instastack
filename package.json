@@ -1,12 +1,13 @@
 {
-  "name": "instagram",
-  "version": "1.1.0",
-  "description": "",
+  "name": "instastack-12factors",
+  "version": "1.0.0",
+  "description": "A sample app built with Node and React to ilustrate the 12 factors.",
   "main": "server.js",
+  "repository": "",
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack",
-    "server": "webpack && babel-node server.js"
+    "prod": "NODE_ENV=production babel-node server.js",
+    "postinstall": "webpack -p"
   },
   "babel": {
     "presets": [
