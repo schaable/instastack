@@ -5,9 +5,11 @@
   "main": "server.js",
   "repository": "",
   "scripts": {
-    "start": "webpack-dev-server",
-    "prod": "NODE_ENV=production babel-node server.js",
-    "postinstall": "webpack -p"
+    "start": "babel-node server.js",
+    "build-client": "webpack -p",
+    "build-server": "babel -d ./dist ./server -s",
+    "build": "npm run build-client && npm run build-server",
+    "prod": "node ./dist/server.js"
   },
   "babel": {
     "presets": [
@@ -18,8 +20,8 @@
   "author": "",
   "license": "ISC",
   "engines": {
-    "node": "6",
-    "npm": "3"
+    "node": "6.9.5",
+    "yarn": "0.27.5"
   },
   "devDependencies": {
     "webpack-dev-server": "1.16.2"
