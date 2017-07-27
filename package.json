@@ -10,7 +10,8 @@
     "build-client": "webpack -p",
     "build-server": "babel -d ./dist ./server -s",
     "build": "yarn build-client && yarn build-server",
-    "prod": "node ./dist/server.js"
+    "prod": "node ./dist/server.js",
+    "test": "jest"
   },
   "babel": {
     "presets": [
@@ -39,6 +40,7 @@
     "express": "4.14.0",
     "immutable": "3.8.1",
     "install": "0.8.1",
+    "jest": "^20.0.4",
     "morgan": "1.7.0",
     "react": "15.3.2",
     "react-dom": "15.3.2",
