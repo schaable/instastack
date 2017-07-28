@@ -10,6 +10,6 @@ it('should succeed as well!', () => {
   expect(2).toEqual(2);
 });
 
-/* it('should succeed... oops!', () => {
+ it('should succeed... oops!', () => {
   expect(0).toEqual('0');
-}); */
+}); 
