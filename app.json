@@ -1,0 +1,20 @@
+{
+  "name": "instastack-12factors",
+  "scripts": {
+  },
+  "env": {
+    "FILESTACK_API_KEY": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
