@@ -29,7 +29,13 @@ yarn install
 
 2. In /src/index.js add a Filestack API key
 
-3. Run the following command to start the app
+3. It is required you have imagemagick installed as a global package to test the _Dependencies_ factor
+
+```
+npm install -g imagemagick
+```
+
+4. Run the following command to start the app
 
 ```
 yarn start

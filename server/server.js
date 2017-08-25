@@ -1,6 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
+const im = require('requireg')('imagemagick');
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -56,6 +57,14 @@ app.route('/image')
 			message:'Image Successfully added!'
 		});
 	});
+
+app.get('/image/details', function(req, res) {
+	const srcImage = decodeURIComponent(req.query.url);
+    im.identify(srcImage, function(err, output) {
+        if (err) throw err;
+        res.json({ 'imageDetails': output });
+    });
+});
 
 app.listen(port);
 

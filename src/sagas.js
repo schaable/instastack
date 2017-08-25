@@ -26,6 +26,11 @@ const postToServer = url => {
   .then(response => response.json());
 }
 
+const getImageDetailsFromServer = ({ url }) => {
+  return fetch(`/image/details?url=${encodeURIComponent(url.replace('https', 'http'))}`)
+    .then(response => response.json());
+}
+
 const pick = () => {
    return new Promise(function (resolve, reject) {
     filepicker.pick (
@@ -79,6 +84,15 @@ function* uploadImage () {
   }
 }
 
+function* getImageDetails ({ url }) {
+  try {
+  	const imageDetails = yield getImageDetailsFromServer({ url });
+  	yield put({ type: 'GET_IMAGE_DETAILS_SUCCESS', payload: imageDetails });
+  } catch (error) {
+  	yield put({ type: 'GET_IMAGE_DETAILS_FAILURE' });
+  }
+}
+
 function* watchGetImages () {
   yield takeLatest('GET_IMAGES', loadImages);
 }
@@ -91,10 +105,15 @@ function* watchFilestack () {
   yield takeLatest('UPLOAD_IMAGE', uploadImage);
 }
 
+function* watchGetImageDetails () {
+  yield takeLatest('GET_IMAGE_DETAILS', getImageDetails);
+}
+
 export default function* rootSaga () {
   yield [
     watchGetImages(),
     watchPostImage(),
-    watchFilestack()
+    watchFilestack(),
+    watchGetImageDetails()
   ]
 }

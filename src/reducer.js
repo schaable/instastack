@@ -11,7 +11,8 @@ const INITIAL_STATE = Map({
 	upload: Map({
 		handle: '',
 		filters: '',
-	})
+	}),
+	imageDetails: ''
 });
 
 export default function (state = INITIAL_STATE, action) {
@@ -57,6 +58,13 @@ export default function (state = INITIAL_STATE, action) {
 				'',
 				filter => action.payload
 			);
+		case 'GET_IMAGE_DETAILS_SUCCESS':
+			return state.merge({
+				imageDetails: action.payload,
+				view: {
+					isLoading: false
+				}
+			});
 		default: return state;
 	}
 }

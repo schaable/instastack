@@ -18,7 +18,11 @@
       "es2015"
     ]
   },
-  "keywords": ["12factors", "heroku", "sample-app"],
+  "keywords": [
+    "12factors",
+    "heroku",
+    "sample-app"
+  ],
   "author": "Luis Schaab",
   "license": "ISC",
   "engines": {
@@ -49,6 +53,7 @@
     "react-router": "2.8.1",
     "redux": "3.6.0",
     "redux-saga": "0.12.0",
+    "requireg": "^0.1.7",
     "style-loader": "0.13.1",
     "webpack": "1.13.2",
     "webpack-merge": "0.14.1",

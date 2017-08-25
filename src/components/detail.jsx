@@ -14,19 +14,30 @@ export class Detail extends React.Component {
 			return this.props.imageList[id].url;
 		}
 	}
+
 	render() {
-		return(
+		return (
 			<div>
-				{this.props.isLoading ?
-					<Spinner/> :
+			{this.props.isLoading ?
+				<Spinner/> :
+				<div>
+					<div className="row m-t-4">
+						<button 
+							type="button" 
+							className="btn center-block" 
+							onClick={() => this.props.getImageDetails(this.imageUrl())}>
+							Show image details
+						</button>
+						{ this.props.imageDetails && alert(this.props.imageDetails) }
+					</div>
 					<div className="row m-t-4">
 						<div className="col-md-12">
 							<img className="img-responsive center-block" src={this.imageUrl()} />
 						</div>
 					</div>
-				}
+				</div>
+			}
 			</div>
-
 		);
 	}
 }
@@ -34,13 +45,15 @@ export class Detail extends React.Component {
 function mapStateToProps(state) {
   return {
     imageList: state.get('imageList').toJS(),
-    isLoading: state.getIn(['view', 'isLoading'])
+	isLoading: state.getIn(['view', 'isLoading']),
+    imageDetails: state.get('imageDetails'),
   };
 }
 
 function mapDispatchToProps(dispatch) {
 	return {
-		getImages: () => dispatch(getImages())
+		getImages: () => dispatch(getImages()),
+		getImageDetails: (url) => dispatch({type: 'GET_IMAGE_DETAILS', url})
 	}
 }
 
