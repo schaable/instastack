@@ -1,7 +1,11 @@
 import express from 'express';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
-const im = require('requireg')('imagemagick');
+const im = require('imagemagick');
+require('dotenv').load();
+
+// Filestack api key should be accesible now
+console.log(`FILESTACK_API_KEY: ${process.env.FILESTACK_API_KEY}`);
 
 const app = express();
 const port = process.env.PORT || 8080;

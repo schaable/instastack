@@ -7,6 +7,9 @@ const validate = require('webpack-validator');
 
 const parts = require('./webpack-loaders');
 
+const webpack = require('webpack');
+require('dotenv').load();
+
 const PATHS = {
   src: path.join(__dirname, 'src'),
   dist: path.join(__dirname, 'dist'),
@@ -33,7 +36,14 @@ const common = {
   },
 	resolve: {
     extensions: ['', '.js', '.jsx']
-  }
+  },
+	plugins: [
+		new webpack.DefinePlugin({
+			'process.env': {
+				'FILESTACK_API_KEY': JSON.stringify(process.env.FILESTACK_API_KEY)
+			}
+		})
+	]
 };
 
 let config;
