@@ -1,42 +1,14 @@
-# Instastack - 12 factor app example
+# 1. Codebase
 
-This project is a fork of samuxyz/instastack that complies with the [12 factors](https://12factor.net/).
+ - A twelve-factor app is always tracked in a version control system. Moreover, all your application code lives in a *single* repository.
 
-The twelve-factor app is a methodology for writing applications where the goal is building software as a service (SaaS).
+ - If you have multiple codebases, then you have a distributed system with multiple apps talking to each other, and you should treat them as separate apps with their own repos (and each one can comply with the twelve-factor).
 
-The main principles are:
- - Use declarative formats for setup automation, to minimize time and cost for new developers joining the project.
- - Have a clean contract with the underlying operating system, offering maximum portability between execution environments.
- - Are suitable for deployment on modern cloud platforms, obviating the need for servers and systems administration.
- - Minimize divergence between development and production, enabling continuous deployment for maximum agility.
- - And can scale up without significant changes to tooling, architecture, or development practices.
+ - Having multiple apps sharing code is a violation of the twelve-factor. The solution is to factor shared code into libraries and include them through the dependency manager.
 
-# How to use this repo
+ - A deploy is a running instance of the app. There will be many deploys of the app: development, staging, production. The codebase is the same for all the deploys, although each one could use a different version.
 
-The _master_ branch contains the app without any factor applied. Besides master, there are twelve branches, one for each factor. In the readme of each branch, you can find information about that particular factor and any setup needed to run the code.
+## Violations
 
-## Prerequisites
- - node
- - yarn
-
-## How to Run the app
-
-1. Install the dependencies with 
-
-```
-yarn install
-```
-
-2. In /src/index.js add a Filestack API key
-
-3. It is required you have imagemagick installed as a global package to test the _Dependencies_ factor
-
-```
-npm install -g imagemagick
-```
-
-4. Run the following command to start the app on the local environment
-
-```
-yarn dev
-```
+ - Modifying production (a deploy instance) by hand.
+ - An app with a desktop and mobile version, both using the same API. Tracked in one repo.
