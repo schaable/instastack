@@ -1,7 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
-const im = require('requireg')('imagemagick');
+const im = require('imagemagick');
 
 const app = express();
 const port = process.env.PORT || 8080;
