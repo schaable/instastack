@@ -9,4 +9,3 @@
 ## Notes
 
  - If the resource is local to your environment, is it still a backing service?
-
