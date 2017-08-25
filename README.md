@@ -11,4 +11,3 @@
  - Single place for all the configuration.
 
  - Why env vars? Easy to change without updating code. Language agnostic.
-
