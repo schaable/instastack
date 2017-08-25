@@ -11,6 +11,7 @@ logs
 
 # Bundle
 /dist/bundle.js 
+/dist/server.js
 
 # Runtime data
 pids
