@@ -1,17 +1,13 @@
-# 2. Dependencies
+# 3. Config
 
- - Explicitly declare and isolate dependencies.
+ - Everything that vary accross environments.
 
-    - All dependencies and their versions should be declared in a manifest file (package.json, Gemfile, etc).
+ - Strict separation of config from code. Don't store config in your repo!
 
-    - Then a command is run (usually during the deployment process) to download the right versions and put them in place.
-
- - Never rely on the existence of system wide packages or tools.
+ - Put config in environment variables, each one should be fully orthogonal to other env vars.
 
 ## Notes
 
- - Avoids the issue of moving a legacy system to a new server.
+ - Single place for all the configuration.
 
- - Helps narrowing the gap between environments.
-
- - Makes onboarding new developers easy (just a new deploy).
+ - Why env vars? Easy to change without updating code. Language agnostic.
