@@ -1,11 +1,11 @@
 {
   "name": "instastack-12factors",
   "version": "1.0.0",
-  "description": "A sample app built with Node and React to ilustrate the 12 factors.",
-  "main": "server.js",
-  "repository": "",
+  "description": "A sample app built with Node and React to illustrate the 12 factors",
+  "main": "server/server.js",
+  "repository": "https://github.com/schaable/instastack-12factors",
   "scripts": {
-    "start": "babel-node server.js",
+    "start": "yarn build && node ./dist/server.js",
     "postinstall": "yarn build",
     "build-client": "webpack -p",
     "build-server": "babel -d ./dist ./server -s",
@@ -18,8 +18,8 @@
       "es2015"
     ]
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["12factors", "heroku", "sample-app"],
+  "author": "Luis Schaab",
   "license": "ISC",
   "engines": {
     "node": "6.9.5",
