@@ -11,7 +11,7 @@ export class Detail extends React.Component {
 			return '';
 		} else {
 			const { id } = this.props.params;
-			return this.props.imageList[id].url;
+			return this.props.imageList.find((i) => `${i.id}` === id).url;
 		}
 	}
 
