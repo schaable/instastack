@@ -1,12 +1,13 @@
-# 4. Backing services
+# 5. Build, release, run
 
- - Any service on which your application relies for its functionality.
+ - A codebase is transformed into a (non-development) deploy through three stages: Build->Release->Run
 
- - Datastores, queue/message systems, caching systems, metric gathering services, SMTP, file storage...
+ - Build stage: transform which converts the codebase into an executable bundle (compile code, fetch dependencies, etc.)
 
- - Treat backing services as bound resources, accessed via a URL/credentials stored in the config. This allows to attach and detach backing services without the need to re-deploy the app.
+ - Release stage: combines the build with the deploy's current config.
 
-## Notes
+ - Run stage: runs the app in the execution environment.
 
- - If the resource is local to your environment, is it still a backing service?
+ - The three stages should be strictly separated from each other.
 
+ - The build stage can be complex and developers manage it. The run stage, however, should be simple and bullet-proof.
