@@ -10,11 +10,6 @@ import db from './db';
 // Filestack api key should be accesible now
 console.log(`FILESTACK_API_KEY: ${process.env.FILESTACK_API_KEY}`);
 
-import db from './db';
-
-// Filestack api key should be accesible now
-console.log(`FILESTACK_API_KEY: ${process.env.FILESTACK_API_KEY}`);
-
 const app = express();
 const port = process.env.PORT || 8080;
 
