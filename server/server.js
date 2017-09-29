@@ -1,6 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
+import cool from 'cool-ascii-faces';
 const im = require('requireg')('imagemagick');
 
 const app = express();
@@ -64,6 +65,12 @@ app.get('/image/details', function(req, res) {
         if (err) throw err;
         res.json({ 'imageDetails': output });
     });
+});
+
+const face = cool();
+
+app.get('/cool', function(req, res) {
+	res.json(face);
 });
 
 app.listen(port);
