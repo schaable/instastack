@@ -1,13 +1,11 @@
-# 3. Config
+# 4. Backing services
 
- - Everything that vary accross environments.
+ - Any service on which your application relies for its functionality.
 
- - Strict separation of config from code. Don't store config in your repo!
+ - Datastores, queue/message systems, caching systems, metric gathering services, SMTP, file storage...
 
- - Put config in environment variables, each one should be fully orthogonal to other env vars.
+ - Treat backing services as bound resources, accessed via a URL/credentials stored in the config. This allows to attach and detach backing services without the need to re-deploy the app.
 
 ## Notes
 
- - Single place for all the configuration.
-
- - Why env vars? Easy to change without updating code. Language agnostic.
+ - If the resource is local to your environment, is it still a backing service?
