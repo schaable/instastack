@@ -4,7 +4,8 @@ import bodyParser from 'body-parser';
 import cool from 'cool-ascii-faces';
 import 'dotenv/config';
 const im = require('imagemagick');
-require('dotenv').load();
+
+import db from './db';
 
 // Filestack api key should be accesible now
 console.log(`FILESTACK_API_KEY: ${process.env.FILESTACK_API_KEY}`);
