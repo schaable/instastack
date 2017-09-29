@@ -13,6 +13,7 @@ logs
 /dist/bundle.js 
 /dist/server.js
 /dist/db/*
+/dist/*.config.js
 
 # Runtime data
 pids

@@ -36,14 +36,7 @@ const common = {
   },
 	resolve: {
     extensions: ['', '.js', '.jsx']
-  },
-	plugins: [
-		new webpack.DefinePlugin({
-			'process.env': {
-				'FILESTACK_API_KEY': JSON.stringify(process.env.FILESTACK_API_KEY)
-			}
-		})
-	]
+  }
 };
 
 let config;

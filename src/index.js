@@ -26,8 +26,8 @@ import { AddContainer } from './components/add';
 import '../dist/css/style.css';
 
 // Filestack API requires to set a key
-filepicker.setKey(process.env.FILESTACK_API_KEY);
-console.log(`FILESTACK_API_KEY: ${process.env.FILESTACK_API_KEY}`);
+filepicker.setKey(window.frontendConfig.FILESTACK_API_KEY);
+console.log(`FILESTACK_API_KEY: ${window.frontendConfig.FILESTACK_API_KEY}`);
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
