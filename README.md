@@ -1,18 +1,16 @@
-# 5. Build, release, run
+# 6. Processes
 
- - A codebase is transformed into a (non-development) deploy through three stages: Build->Release->Run
+ - The app is executed as one or more processes.
 
- - Build stage: transform which converts the codebase into an executable bundle (compile code, fetch dependencies, etc.)
+ - Twelve-factor processes are stateless<sup>[1]</sup> and share-nothing.
 
- - Release stage: combines the build with the deploy's current config.
+ - Provides robustness and better scalability.
 
- - Run stage: runs the app in the execution environment.
+# Violations
 
- - The three stages should be strictly separated from each other.
+ - Sticky sessions.
 
- - The build stage can be complex and developers manage it. The run stage, however, should be simple and bullet-proof.
+ - Using the file system to persist data.
 
-# Discussion
 
- - Rollback
- 
+[1] All long-lasting state must be provided by backing services.
