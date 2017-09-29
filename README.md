@@ -35,8 +35,8 @@ yarn install
 npm install -g imagemagick
 ```
 
-4. Run the following command to start the app
+4. Run the following command to start the app on the local environment
 
 ```
-yarn start
+yarn dev
 ```

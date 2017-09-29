@@ -5,12 +5,12 @@
   "main": "server/server.js",
   "repository": "https://github.com/schaable/instastack-12factors",
   "scripts": {
-    "start": "yarn build && node ./dist/server.js",
+    "dev": "yarn build && node ./dist/server.js",
     "postinstall": "yarn build",
     "build-client": "webpack -p",
     "build-server": "babel -d ./dist ./server -s",
     "build": "yarn build-client && yarn build-server",
-    "prod": "node ./dist/server.js",
+    "start": "node ./dist/server.js",
     "test": "jest"
   },
   "babel": {
