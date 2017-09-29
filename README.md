@@ -11,3 +11,8 @@
  - The three stages should be strictly separated from each other.
 
  - The build stage can be complex and developers manage it. The run stage, however, should be simple and bullet-proof.
+
+# Discussion
+
+ - Rollback
+ 
