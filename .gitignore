@@ -10,10 +10,7 @@ logs
 *.js.map
 
 # Bundle
-/dist/bundle.js 
-/dist/server.js
-/dist/db/*
-/dist/*.config.js
+/dist/**/*.js
 
 # Runtime data
 pids

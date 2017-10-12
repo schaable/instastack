@@ -12,6 +12,7 @@
     "build": "yarn build-client && yarn build-server",
     "prestart": "gulp configFrontend",
     "start": "node ./dist/server.js",
+    "worker": "node ./dist/worker.js",
     "test": "jest"
   },
   "babel": {
@@ -53,6 +54,7 @@
     "install": "0.8.1",
     "jest": "^20.0.4",
     "morgan": "1.7.0",
+    "node-schedule": "^1.2.5",
     "path": "^0.12.7",
     "pg-promise": "^6.10.1",
     "react": "15.3.2",
