@@ -36,7 +36,20 @@ const common = {
   },
 	resolve: {
     extensions: ['', '.js', '.jsx']
-  }
+	},
+	plugins: [new webpack.optimize.UglifyJsPlugin({
+			warningsFilter: function(filename) {
+				return /node_modules\.js$/.test(filename);
+			},
+			sourceMap: true,
+			compress: {
+				warnings: true,
+			},
+			mangle: false,
+			beautify: true,
+			comments: false
+		})
+	],
 };
 
 let config;
