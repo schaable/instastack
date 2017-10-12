@@ -39,7 +39,7 @@ const common = {
 	},
 	plugins: [new webpack.optimize.UglifyJsPlugin({
 			warningsFilter: function(filename) {
-				return /node_modules\.js$/.test(filename);
+				return /^node_modules\/.*\.js$/.test(filename);
 			},
 			sourceMap: true,
 			compress: {
