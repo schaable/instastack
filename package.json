@@ -32,12 +32,13 @@
     "yarn": "*"
   },
   "devDependencies": {
+    "webpack-cli": "^1.3.9",
     "webpack-dev-server": "1.16.2"
   },
   "dependencies": {
     "babel-cli": "6.16.0",
     "babel-core": "6.17.0",
-    "babel-loader": "6.2.5",
+    "babel-loader": "^7.1.2",
     "babel-polyfill": "6.16.0",
     "babel-preset-es2015": "6.16.0",
     "babel-preset-react": "6.16.0",
@@ -45,7 +46,7 @@
     "body-parser": "1.15.2",
     "buffer-to-vinyl": "^1.1.0",
     "cool-ascii-faces": "^1.3.4",
-    "css-loader": "0.25.0",
+    "css-loader": "^0.28.7",
     "dotenv": "^4.0.0",
     "express": "4.14.0",
     "gulp": "^3.9.1",
@@ -59,15 +60,14 @@
     "pg-promise": "^6.10.1",
     "react": "15.3.2",
     "react-dom": "15.3.2",
-    "react-hot-loader": "3.0.0-beta.5",
+    "react-hot-loader": "^3.0.0",
     "react-redux": "4.4.5",
     "react-router": "2.8.1",
     "redux": "3.6.0",
     "redux-saga": "0.12.0",
-    "style-loader": "0.13.1",
+    "style-loader": "^0.19.0",
     "throng": "^4.0.0",
-    "webpack": "1.13.2",
-    "webpack-merge": "0.14.1",
-    "webpack-validator": "2.2.9"
+    "webpack": "3.7.1",
+    "webpack-merge": "^4.1.0"
   }
 }
