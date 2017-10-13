@@ -10,7 +10,7 @@ import db from './db';
 // Filestack api key should be accesible now
 // console.log(`FILESTACK_API_KEY: ${process.env.FILESTACK_API_KEY}`);
 
-export default function() {
+export default function(workerId) {
 	const app = express();
 	const port = process.env.PORT || 8080;
 	
@@ -55,5 +55,5 @@ export default function() {
 	
 	app.listen(port);
 	
-	console.log(`listening on port ${port}`);
+	console.log(`worker ${workerId} listening on port ${port}`);
 };
