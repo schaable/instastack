@@ -1,12 +1,14 @@
-# 7. Port binding
+# 8. Concurrency
 
- - Export your app's services via port binding.
+ - Adding CPUs, RAM, and other resources (virtual or physical) to a single monolithic application is called vertical scaling.
 
- - Your app doesn't rely on the existence of a web server / container. Instead those dependencies are bundled with your app making your app self contained.
+ - Adding more processes and then distributing the load of your application
+among those processes is called horizontal scaling.
 
- - Beyond the 12 factor app: a slightly less restrictive guideline is that there must always be
-a 1:1 correlation between application and application server.
+ - Twelve-factor apps use horizontal scaling. The share-nothing, horizontally partitionable nature of twelve-factor app processes means that adding more concurrency is a simple and reliable operation.
 
- - An application developed with exported port binding in mind supports environment-specific port binding without having to change any code.
+### Notes
 
- - Using this approach means that your app can become a backing service for other apps.
+ - Node limited scalability:
+    - It’s single-threaded, so it can’t automatically take advantage of additional CPU cores.
+    - Hard memory limit of about 1.5 GB, so it also cannot automatically take advantage of additional memory.
