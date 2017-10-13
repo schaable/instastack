@@ -3,7 +3,6 @@
 
 const path = require('path');
 const merge = require('webpack-merge');
-const validate = require('webpack-validator');
 
 const parts = require('./webpack-loaders');
 
@@ -25,19 +24,22 @@ const common = {
 		filename: 'bundle.js'
 	},
 	module: {
-    loaders: [{
+    rules: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
-      loader: 'babel-loader',
-      query: {
-        presets: ['es2015', 'react']
-      }
+      use: [{
+        loader: 'babel-loader',
+        options: {
+          presets: ['es2015', 'react']
+        }
+      }]
     }]
   },
 	resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx']
 	},
-	plugins: [new webpack.optimize.UglifyJsPlugin({
+	plugins: [
+		new webpack.optimize.UglifyJsPlugin({
 			warningsFilter: function(filename) {
 				return /^node_modules\/.*\.js$/.test(filename);
 			},
@@ -78,4 +80,4 @@ switch(process.env.NODE_ENV) {
 		);
 }
 
-module.exports = validate(config);
+module.exports = config;

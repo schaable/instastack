@@ -22,10 +22,10 @@ exports.devServer = function(options) {
 exports.setupCSS = function(paths) {
   return {
     module: {
-      loaders: [
+      rules: [
         {
           test: /\.css$/,
-          loaders: ['style', 'css'],
+          use: ['style-loader', 'css-loader'],
           include: paths
         }
       ]
