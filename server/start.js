@@ -56,4 +56,10 @@ export default function(workerId) {
 	app.listen(port);
 	
 	console.log(`worker ${workerId} listening on port ${port}`);
+
+	process.on('SIGTERM', () => {
+		console.log(`Worker ${workerId} exiting...`);
+		console.log('(cleanup would happen here)');
+		process.exit();
+	});
 };

@@ -1,14 +1,7 @@
-# 8. Concurrency
+# 9. Disposability
 
- - Adding CPUs, RAM, and other resources (virtual or physical) to a single monolithic application is called vertical scaling.
+ - Twelve factor apps can be started or stopped rapidly facilitating fast elastic scaling, rapid deployment of code or config changes, and robustness of production deploys.
 
- - Adding more processes and then distributing the load of your application
-among those processes is called horizontal scaling.
+ - When shutting down gracefully, worker processes should return jobs to the worker queue so that another process can pick up the job and continue on.
 
- - Twelve-factor apps use horizontal scaling. The share-nothing, horizontally partitionable nature of twelve-factor app processes means that adding more concurrency is a simple and reliable operation.
-
-### Notes
-
- - Node limited scalability:
-    - It’s single-threaded, so it can’t automatically take advantage of additional CPU cores.
-    - Hard memory limit of about 1.5 GB, so it also cannot automatically take advantage of additional memory.
+ - When shut down non-gracefully, like a power outage, the job should be automatically passed on to another process after a timeout.
