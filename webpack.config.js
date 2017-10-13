@@ -2,11 +2,8 @@
 "use strict";
 
 const path = require('path');
-const merge = require('webpack-merge');
-
-const parts = require('./webpack-loaders');
-
 const webpack = require('webpack');
+
 require('dotenv').load();
 
 const PATHS = {
@@ -15,7 +12,7 @@ const PATHS = {
   css: path.join(__dirname, 'dist/css')
 };
 
-const common = {
+const config = {
 	entry: {
 		app: PATHS.src
 	},
@@ -33,11 +30,17 @@ const common = {
           presets: ['es2015', 'react']
         }
       }]
-    }]
+		},
+		{
+			test: /\.css$/,
+			use: ['style-loader', 'css-loader'],
+			include: PATHS.css
+		}]
   },
 	resolve: {
     extensions: ['.js', '.jsx']
 	},
+	devtool: 'source-map',
 	plugins: [
 		new webpack.optimize.UglifyJsPlugin({
 			warningsFilter: function(filename) {
@@ -53,31 +56,5 @@ const common = {
 		})
 	],
 };
-
-let config;
-
-switch(process.env.NODE_ENV) {
-	case 'production':
-		config = merge(
-		  common,
-      {
-        devtool: 'source-map'
-      },
-      parts.setupCSS(PATHS.css)
-	  );
-		break;
-	default:
-		config = merge(
-			common,
-			{
-	      devtool: 'eval-source-map'
-	    },
-	    parts.setupCSS(PATHS.css),
-			parts.devServer({
-				host: process.env.host,
-				port: 3000
-			})
-		);
-}
 
 module.exports = config;
