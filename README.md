@@ -1,7 +1,14 @@
-# 9. Disposability
+# 10. Dev/prod parity
 
- - Twelve factor apps can be started or stopped rapidly facilitating fast elastic scaling, rapid deployment of code or config changes, and robustness of production deploys.
+ - Keep environments as similar as possible.
 
- - When shutting down gracefully, worker processes should return jobs to the worker queue so that another process can pick up the job and continue on.
+ - Gaps:
+   - An extended period between deployments.
+   - Different tools used for each environment.
+   - Developers write the code while dev ops do the deploy/testing.
 
- - When shut down non-gracefully, like a power outage, the job should be automatically passed on to another process after a timeout.
+### Tools
+
+ - VM/Container (Vagrant, Virtualbox, Docker) + CM tools (Puppet, Chef, Ansible)
+
+ - `heroku local` (populates environment with .env content!) / Foreman
