@@ -12,8 +12,7 @@
     "build": "yarn build-client && yarn build-server",
     "start": "node ./dist/server.js",
     "test": "jest",
-    "heroku-prebuild": "NPM_CONFIG_PRODUCTION=false && YARN_PRODUCTION=false",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=true && YARN_PRODUCTION=true && yarn install --production --ignore-scripts --prefer-offline"
+    "heroku-postbuild": "yarn install --production --ignore-scripts --prefer-offline"
   },
   "babel": {
     "presets": [
